@@ -18,7 +18,6 @@ calculate_triangular_numbers() {
     echo "Multiples of 3 within the range: $multiple_of_3_count"
 }
 
-# Function to find numbers as the product of two even square numbers in succession
 find_even_square_numbers() {
     count=$1
     num=2
@@ -41,7 +40,6 @@ find_even_square_numbers() {
     done
 }
 
-# Function to find terms of a sequence
 find_sequence_terms() {
     a=$1
     b=$2
@@ -58,7 +56,6 @@ find_sequence_terms() {
     echo "Sum of terms: $sum"
 }
 
-# Main program
 echo "Welcome to the Shell Scripting Application!"
 read -p "Please enter your name: " username
 
