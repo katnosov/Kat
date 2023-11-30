@@ -46,7 +46,7 @@ find_sequence_terms() {
     max_terms=$3
     sum=0
     
-
+##Start of If Statement for positive int values for sequences
     if [[ $a =~ ^[0-9]+$ ]] && ((b >= 0)); then
         for (( n = 1; n <= max_terms; n++ )); do
             term=$((a * n * n * n + b * n))
@@ -58,8 +58,9 @@ find_sequence_terms() {
         echo "Error: Please ensure your inputs are positive values."
         echo      
     fi
+    ##End of If statement that checks for Positive Input values for Sequences
 }
-
+##Start of Logic for asking for name and verifying continued use
 echo "Welcome to the Shell Scripting Application!"
 read -p "Please enter your name: " username
 while true; do
@@ -74,7 +75,7 @@ while true; do
         echo "Invalid input. Please enter Y (yes) or N (no)."
     fi
 done
-
+## End of logic for handling name entry and continue verification
 while true; do
     echo
     echo "Hello, $username! What would you like to do?"
@@ -87,6 +88,8 @@ while true; do
 
     case $choice in
         A|a|1)
+
+        ## Option 1 as required by assign
             echo "You have chosen menu choice A - Find triangular numbers within a range"
             sleep 2
             read -p "Enter the start of the range: " start
@@ -94,12 +97,16 @@ while true; do
             calculate_triangular_numbers $start $end
             ;;
         B|b|2)
+
+        ## Option 2 as required by assign
             echo "You have chosen menu choice B - Find numbers as the product of two even square numbers"
             sleep 2
             read -p "Enter the number of such numbers to print: " count
             find_even_square_numbers $count
             ;;
         C|c|3)
+
+        ## Option 3 as required by assign
             echo "You have chosen menu choice C - Find terms of a sequence"
             sleep 2
             read -p "Enter the value of 'a': " a
@@ -107,6 +114,8 @@ while true; do
             read -p "Enter the maximum number of terms: " max_terms
             find_sequence_terms $a $b $max_terms
             ;;
+
+            ## Option to leave the loop and close the program
         D|d|4)
             echo "You have chosen menu choice D - Exit"
             sleep 2
