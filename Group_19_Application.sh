@@ -47,7 +47,7 @@ find_sequence_terms() {
     sum=0
     
 
-    if [[ $a =~ ^[0-9]+$ ]] && ((b < 0)); then
+    if [[ $a =~ ^[0-9]+$ ]] && ((b >= 0)); then
         for (( n = 1; n <= max_terms; n++ )); do
             term=$((a * n * n * n + b * n))
             echo -n "$term "
@@ -62,6 +62,18 @@ find_sequence_terms() {
 
 echo "Welcome to the Shell Scripting Application!"
 read -p "Please enter your name: " username
+while true; do
+    read -p "Hello, $username! Would you like to continue using the program? (Y/N): " continue_choice
+
+    if [[ $continue_choice == [Yy] ]]; then
+        break  # Exit the loop if user chooses to continue
+    elif [[ $continue_choice == [Nn] ]]; then
+        echo "Goodbye, $username!"
+        exit 0  # Exit the program if user chooses not to continue
+    else
+        echo "Invalid input. Please enter Y (yes) or N (no)."
+    fi
+done
 
 while true; do
     echo
