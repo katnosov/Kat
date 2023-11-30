@@ -63,11 +63,11 @@ find_sequence_terms() {
 echo "Welcome to the Shell Scripting Application!"
 read -p "Please enter your name: " username
 while true; do
-    read -p "Hello, $username! Would you like to continue using the program? (Y/N): " continue_choice
+    read -p "Hello, $username! Would you like to continue using the program? (1/2): " continue_choice
 
-    if [[ $continue_choice == [Yy] ]]; then
+    if [[ $continue_choice == [1] ]]; then
         break  # Exit the loop if user chooses to continue
-    elif [[ $continue_choice == [Nn] ]]; then
+    elif [[ $continue_choice == [2] ]]; then
         echo "Goodbye, $username!"
         exit 0  # Exit the program if user chooses not to continue
     else
@@ -86,25 +86,30 @@ while true; do
     read -p "Enter your choice: " choice
 
     case $choice in
-        A|1)
+        A|a|1)
+            echo "You have chosen menu choice A - Find triangular numbers within a range"
+            sleep 2
             read -p "Enter the start of the range: " start
             read -p "Enter the end of the range: " end
-            echo "You selected: Find triangular numbers within a range"
             calculate_triangular_numbers $start $end
             ;;
-        B|2)
+        B|b|2)
+            echo "You have chosen menu choice B - Find numbers as the product of two even square numbers"
+            sleep 2
             read -p "Enter the number of such numbers to print: " count
-            echo "You selected: Find numbers as the product of two even square numbers"
             find_even_square_numbers $count
             ;;
-        C|3)
+        C|c|3)
+            echo "You have chosen menu choice C - Find terms of a sequence"
+            sleep 2
             read -p "Enter the value of 'a': " a
             read -p "Enter the value of 'b': " b
             read -p "Enter the maximum number of terms: " max_terms
-            echo "You selected: Find terms of a sequence"
             find_sequence_terms $a $b $max_terms
             ;;
-        D|4)
+        D|d|4)
+            echo "You have chosen menu choice D - Exit"
+            sleep 2
             echo "Goodbye, $username!"
             exit 0
             ;;
