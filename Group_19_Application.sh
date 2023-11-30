@@ -45,15 +45,19 @@ find_sequence_terms() {
     b=$2
     max_terms=$3
     sum=0
+    
 
-    for (( n = 1; n <= max_terms; n++ )); do
-        term=$((a * n * n * n + b * n))
-        echo -n "$term "
-        ((sum += term))
-    done
-
-    echo
-    echo "Sum of terms: $sum"
+    if [[ $a =~ ^[0-9]+$ ]] && ((b < 0)); then
+        for (( n = 1; n <= max_terms; n++ )); do
+            term=$((a * n * n * n + b * n))
+            echo -n "$term "
+            ((sum += term))
+        done
+        echo "Sum of terms: $sum"
+    else
+        echo "Error: Please ensure your inputs are positive values."
+        echo      
+    fi
 }
 
 echo "Welcome to the Shell Scripting Application!"
